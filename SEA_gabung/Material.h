@@ -4,11 +4,20 @@ using namespace std;
 
 class Material{
 	private:
-		int ID, Amount = 0;
+		int ID, Jumlah=0;
 		string Nama;
 	public:
-		Material(int id, string nama, int amount);
-		void TambahAmount(int amount);
-		void KurangAmount(int amount);
-		int GetAmount();		
+		Material();
+		void SetNama(string nama);
+		void SetID(int ID);
+		
+		void SetJumlah(int jumlah);
+		void TambahJumlah();
+		void TambahJumlah(int jumlah);
+		void KurangJumlah();
+		void KurangJumlah(int jumlah);
+		
+		int GetJumlah();
+		int GetID();
+		string GetNama();
 };

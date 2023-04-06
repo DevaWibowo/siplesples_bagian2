@@ -6,6 +6,10 @@
 #include <vector>
 #include "ExpBook.cpp"
 #include "Material.cpp"
+#include "Mat_Boss.cpp"
+#include "Mat_Gem.cpp"
+#include "Mat_Mob.cpp"
+#include "Mat_Local.cpp"
 using namespace std;
 
 class Karakter{
@@ -47,7 +51,6 @@ class Karakter{
 		void ConsumeExpBook(ExpBook& buku, int amount);
 		void LevelUp();
 		void LimitBreak(int level, Material tier1, Material tier2);
-		void AscendChar();
 		
 		// METHOD VOID / LAINNYA
 		
@@ -68,6 +71,10 @@ class Karakter{
 		// METHOD CETAK VECTOR
 		void PrintArray(int arr[], int size);
 		void PrintArray(string arr[], int size);
+		
+		// ASCEND
+//		void AscendChar(Mat_Gem& silver, Mat_Gem& fragment, Mat_Gem& chunk, Mat_Gem& gemstone, Mat_Boss& boss, Mat_Local& local, Mat_Mob& mob1, Mat_Mob& mob2, Mat_Mob& mob3);
+		void AscendChar(Mat_Gem* silver, Mat_Gem* fragment, Mat_Gem* chunk, Mat_Gem* gemstone, Mat_Boss* boss, Mat_Local* local, Mat_Mob* mob1, Mat_Mob* mob2, Mat_Mob* mob3);
 };
 
 #endif

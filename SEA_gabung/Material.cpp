@@ -1,15 +1,18 @@
 #pragma once
 #include "Material.h"
 
-Material::Material(int id, string nama, int amount) : ID(id), Nama(nama), Amount(amount){
+Material::Material(){
 	
 }
-void Material::TambahAmount(int amount){
-	this->Amount += amount;
+void Material::TambahJumlah(int jumlah){
+	this->Jumlah += jumlah;
 }
-void Material::KurangAmount(int amount){
-	this->Amount -= amount;
+void Material::KurangJumlah(int jumlah){
+	this->Jumlah -= jumlah;
 }
-int Material::GetAmount(){
-	return this->Amount;
+int Material::GetJumlah(){
+	return this->Jumlah;
+}
+void Material::SetJumlah(int jumlah){
+	this->Jumlah = jumlah;
 }

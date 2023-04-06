@@ -5,7 +5,7 @@ class AratakiItto : public Karakter{
 	private:
 		
 	public:
-		void LimitBreak(){
+		AratakiItto(){
 			
 		}
 };

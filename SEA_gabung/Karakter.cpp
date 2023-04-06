@@ -1,4 +1,5 @@
 #pragma once
+#include "kamus.h"
 #include "Karakter.h"
 #include "Akun.cpp"
 
@@ -6,12 +7,12 @@ vector<int> vBatasExp = { 1000,1325,1700,2150,2625,3150,3725,4350,5000,5700,6450
 vector<int> vAscend = { 0, 1, 2, 3, 4, 5, 6 };
 vector<int> vLimit = { 20, 40, 50, 60, 70, 80, 90};
 
-void Karakter::AscendChar(){
-	int AscendC = this->GetAscend();
-	if(AscendC < 6){
-		this->Ascend++;
-	}
-}
+//void Karakter::AscendChar(){
+//	int AscendC = this->GetAscend();
+//	if(AscendC < 6){
+//		this->Ascend++;
+//	}
+//}
 
 // IMPLEMENTASI CONSTRUCTOR
 Karakter::Karakter(){
@@ -226,6 +227,93 @@ void Karakter::Display(){
 //	cout << "EXP Karakter  : " << this->GetExp() << endl;
 
 	cout << endl;
+}
+//void Karakter::AscendChar(Mat_Gem& silver, Mat_Gem& fragment, Mat_Gem& chunk, Mat_Gem& gemstone, Mat_Boss& boss, Mat_Local& local, Mat_Mob& mob1, Mat_Mob& mob2, Mat_Mob& mob3){
+//	int JmlGemSilver = silver.GetJumlah();
+//	cout << JmlGemSilver << endl;
+//	silver.SetJumlah(5);
+//	cout << JmlGemSilver << endl;
+//	cout << "ASCEND BERHASIL" << endl;
+//	int AscendLv = this->GetAscend();	
+//}
+void Karakter::AscendChar(Mat_Gem* silver, Mat_Gem* fragment, Mat_Gem* chunk, Mat_Gem* gemstone, Mat_Boss* boss, Mat_Local* local, Mat_Mob* mob1, Mat_Mob* mob2, Mat_Mob* mob3){
+	int AscendLv = this->GetAscend();
+	int JmlSilver = silver->GetJumlah();
+	int JmlFragment = fragment->GetJumlah();
+	int JmlChunk = chunk->GetJumlah();
+	int JmlGemstone = gemstone->GetJumlah();
+	int JmlBoss = boss->GetJumlah();
+	int JmlLocal = local->GetJumlah();
+	int JmlMob1 = mob1->GetJumlah();
+	int JmlMob2 = mob2->GetJumlah();
+	int JmlMob3 = mob3->GetJumlah();
+	
+	vector<int> vLimitGem = { 1, 3, 6, 3, 6, 6 };
+	vector<int> vLimitBoss = { 0, 2, 4, 8, 12, 20 };
+	vector<int> vLimitMob = { 3, 15, 12, 18, 12, 24 };
+	vector<int> vLimitLocal = { 3, 10, 20, 30, 45, 60 };
+	
+	int BatasGem = vLimitGem[AscendLv];
+	int BatasLocal = vLimitLocal[AscendLv];
+	int BatasMob = vLimitMob[AscendLv];
+	int BatasBoss = vLimitMob[AscendLv];
+	
+	switch(AscendLv){
+		case 0:
+			if(JmlSilver >= BatasGem && JmlLocal >= BatasLocal && JmlMob1 >= BatasMob){
+				silver->KurangJumlah(BatasGem);
+				local->KurangJumlah(BatasLocal);
+				mob1->KurangJumlah(BatasMob);
+				this->SetAscend(1);
+			}
+			break;
+		case 1:
+			if(JmlFragment >= BatasGem && JmlBoss >= BatasBoss && JmlLocal >= BatasLocal && JmlMob1 >= BatasMob){
+				fragment->KurangJumlah(BatasGem);
+				boss->KurangJumlah(BatasBoss);
+				local->KurangJumlah(BatasLocal);
+				mob1->KurangJumlah(BatasMob);
+				this->SetAscend(2);
+			}
+			break;
+		case 2:
+			if(JmlFragment >= BatasGem && JmlBoss >= BatasBoss && JmlLocal >= BatasLocal && JmlMob2 >= BatasMob){
+				fragment->KurangJumlah(BatasGem);
+				boss->KurangJumlah(BatasBoss);
+				local->KurangJumlah(BatasLocal);
+				mob2->KurangJumlah(BatasMob);
+				this->SetAscend(3);
+			}
+			break;
+		case 3:
+			if(JmlChunk >= BatasGem && JmlBoss >= BatasBoss && JmlLocal >= BatasLocal && >= JmlMob2 >= BatasMob){
+				chunk->KurangJumlah(BatasGem);
+				boss->KurangJumlah(BatasBoss);
+				local->KurangJumlah(BatasLocal);
+				mob2->KurangJumlah(BatasMob);
+				this->SetAscend(4);
+			}
+			break;
+		case 4:
+			if(JmlChunk >= BatasGem && JmlBoss >= BatasBoss && JmlLocal >= BatasLocal && JmlMob3 >= BatasMob){
+				chunk->KurangJumlah(BatasGem);
+				boss->KurangJumlah(BatasBoss);
+				local->KurangJumlah(BatasLocal);
+				mob3->KurangJumlah(BatasMob);
+				this->SetAscend(5);
+			}
+			break;
+		case 5:
+			if(JmlGemstone >= BatasGem && JmlBoss >= BatasBoss && JmlLocal >= BatasLocal && JmlMob3 >= BatasMob){
+				gemstone->KurangJumlah(BatasGem);
+				boss->KurangJumlah(BatasBoss);
+				local->KurangJumlah(BatasLocal);
+				mob3->KurangJumlah(BatasMob);
+			}
+			break;
+		default:
+			cout << "UNDEFINED" << endl;
+	}
 }
 
 

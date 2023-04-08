@@ -73,8 +73,8 @@ class Karakter{
 		void PrintArray(string arr[], int size);
 		
 		// ASCEND
-//		void AscendChar(Mat_Gem& silver, Mat_Gem& fragment, Mat_Gem& chunk, Mat_Gem& gemstone, Mat_Boss& boss, Mat_Local& local, Mat_Mob& mob1, Mat_Mob& mob2, Mat_Mob& mob3);
-		void AscendChar(Mat_Gem* silver, Mat_Gem* fragment, Mat_Gem* chunk, Mat_Gem* gemstone, Mat_Boss* boss, Mat_Local* local, Mat_Mob* mob1, Mat_Mob* mob2, Mat_Mob* mob3);
+		void AscendChar(Mat_Gem& silver, Mat_Gem& fragment, Mat_Gem& chunk, Mat_Gem& gemstone, Mat_Boss& boss, Mat_Local& local, Mat_Mob& mob1, Mat_Mob& mob2, Mat_Mob& mob3);
+//		void AscendChar(Mat_Gem* silver, Mat_Gem* fragment, Mat_Gem* chunk, Mat_Gem* gemstone, Mat_Boss* boss, Mat_Local* local, Mat_Mob* mob1, Mat_Mob* mob2, Mat_Mob* mob3);
 };
 
 #endif

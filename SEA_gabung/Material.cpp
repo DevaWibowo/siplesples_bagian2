@@ -16,3 +16,12 @@ int Material::GetJumlah(){
 void Material::SetJumlah(int jumlah){
 	this->Jumlah = jumlah;
 }
+void CraftMaterial(Material& awal, Material& akhir, int jumlah){
+	int JumlahAwal = awal.GetJumlah();
+	int JumlahButuh = jumlah * 3;
+	if(JumlahAwal >= JumlahButuh){
+		int Hasil = JumlahButuh / 3;
+		awal.KurangJumlah(JumlahButuh);
+		akhir.TambahJumlah(Hasil);
+	}
+}

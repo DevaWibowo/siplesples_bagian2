@@ -6,6 +6,7 @@ class Material{
 	private:
 		int ID, Jumlah=0;
 		string Nama;
+		
 	public:
 		Material();
 		void SetNama(string nama);
@@ -20,4 +21,6 @@ class Material{
 		int GetJumlah();
 		int GetID();
 		string GetNama();
+		
+		void CraftMaterial(Material& awal, Material& akhir, int jumlah);
 };

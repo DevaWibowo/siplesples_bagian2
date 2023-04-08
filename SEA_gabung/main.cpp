@@ -1,5 +1,11 @@
 #include "Kamus.h"
 
+void DisplayMaterial(){
+	cout << PrithivaTopazSilver->GetJumlah() << endl;
+	cout << Onikabuto->GetJumlah() << endl;
+	cout << SlimeCondensate->GetJumlah() << endl;
+};
+
 int main(){
 	//PERCOBAAN TAHAP 1: KARAKTER DAN LEVEL UP
 	//Deklarasi 1: Pointer digabung dengan objek
@@ -44,13 +50,34 @@ int main(){
 //	cout << pMaterial->GetJumlah() << endl;
 	
 	PrithivaTopazSilver->SetJumlah(10);
+	PrithivaTopazFragment->SetJumlah(1);
 	Onikabuto->SetJumlah(10);
-	SlimeCondensate->SetJumlah(10);
+	SlimeCondensate->SetJumlah(100);
+	SlimeSecretion->SetJumlah(9);
+	//CraftSlimeSecretion(11);
+	cout << "Topaz Silver: " << PrithivaTopazSilver->GetJumlah() << endl;
+	cout << "Topaz Fragment: " << PrithivaTopazFragment->GetJumlah() << endl;
+	CraftMaterial(*PrithivaTopazSilver, *PrithivaTopazFragment, 2);
+	cout << "Topaz Silver: " << PrithivaTopazSilver->GetJumlah() << endl;
+	cout << "Topaz Fragment: " << PrithivaTopazFragment->GetJumlah() << endl;
 	Karakter* Itto = new Karakter();
-	cout << Itto->GetAscend() << endl;
-//	Itto->AscendChar(*pMatGemGeoSilver, *pMatGemGeoFragment, *pMatGemGeoChunk, *pMatGemGeoGemstone, *pGoldenWolf, *pOnikabuto, *pSlimeCondensate, *pSlimeSecretion, *pSlimeConcentrate);
-	Itto->AscendChar(PrithivaTopazSilver, PrithivaTopazFragment, PrithivaTopazChunk, PrithivaTopazGemstone, GoldenWolf, Onikabuto, SlimeCondensate, SlimeSecretion, SlimeConcentrate);
-	cout << Itto->GetAscend() << endl;
+//	cout << Itto->GetAscend() << endl;
+//	DisplayMaterial();
+//	Itto->AscendChar(
+//		*PrithivaTopazSilver, 
+//		*PrithivaTopazFragment, 
+//		*PrithivaTopazChunk, 
+//		*PrithivaTopazGemstone, 
+//		*GoldenWolf, 
+//		*Onikabuto, 
+//		*SlimeCondensate, 
+//		*SlimeSecretion, 
+//		*SlimeConcentrate
+//	);
+//	DisplayMaterial();
+	
+	
+//	cout << Itto->GetAscend() << endl;
 	
 	return 0;
 }

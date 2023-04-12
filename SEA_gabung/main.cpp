@@ -1,10 +1,35 @@
 #include "Kamus.h"
 
+Weapon Redhorn;
+Weapon* pWeapon = &Redhorn;
+Weapon Thundering;
+Weapon* pThundering = &Thundering;
+
+Karakter Itto;
+Karakter* pKarakter = &Itto;
+
 void DisplayMaterial(){
 	cout << PrithivaTopazSilver->GetJumlah() << endl;
 	cout << Onikabuto->GetJumlah() << endl;
 	cout << SlimeCondensate->GetJumlah() << endl;
 };
+
+void DisplayDataWeap(){
+	cout << "Level Redhorn: " << pWeapon->GetLevel() << endl;
+	cout << "Limit Level  : " << pWeapon->GetLimit() << endl;
+	cout << "Level Ascend : " << pWeapon->GetAscend() << endl;
+	cout << "Exp Redhorn  : " << pWeapon->GetExp() << endl;
+	cout << "Batas Redhorn: " << pWeapon->GetBatasExpWeap() << endl;
+	cout << "Jumlah Ore   : " << EnhanmentOre->GetJumlah();
+	cout << endl;
+}
+
+void DisplayDataChar(){
+	cout << "Level Karakter : " << pKarakter->GetLevel() << endl;
+	cout << "Exp Karakter   : " << pKarakter->GetExp() << endl;
+	cout << "Ascend Karakter: " << pKarakter->GetBatasExpV() << endl;
+	cout << "Limit Level    : " << pKarakter->GetLimitLevel() << endl;
+}
 
 int main(){
 	//PERCOBAAN TAHAP 1: KARAKTER DAN LEVEL UP
@@ -48,21 +73,22 @@ int main(){
 //	pMaterial->SetJumlah(10);
 //	cout << pMat_Mob->GetJumlah() << endl;
 //	cout << pMaterial->GetJumlah() << endl;
-	
-	PrithivaTopazSilver->SetJumlah(10);
-	PrithivaTopazFragment->SetJumlah(1);
-	Onikabuto->SetJumlah(10);
-	SlimeCondensate->SetJumlah(100);
-	SlimeSecretion->SetJumlah(9);
 	//CraftSlimeSecretion(11);
-	cout << "Topaz Silver: " << PrithivaTopazSilver->GetJumlah() << endl;
-	cout << "Topaz Fragment: " << PrithivaTopazFragment->GetJumlah() << endl;
-	CraftMaterial(*PrithivaTopazSilver, *PrithivaTopazFragment, 2);
-	cout << "Topaz Silver: " << PrithivaTopazSilver->GetJumlah() << endl;
-	cout << "Topaz Fragment: " << PrithivaTopazFragment->GetJumlah() << endl;
-	Karakter* Itto = new Karakter();
+	//vector<Material> vMaterial = { *PrithivaTopazSilver, *PrithivaTopazFragment };
+//	PrithivaTopazSilver->SetJumlah(10);
+//	PrithivaTopazFragment->SetJumlah(1);
+//	Onikabuto->SetJumlah(10);
+//	SlimeCondensate->SetJumlah(100);
+//	SlimeSecretion->SetJumlah(9);
+//	
+//	cout << "Topaz Silver: " << PrithivaTopazSilver->GetJumlah() << endl;
+//	cout << "Topaz Fragment: " << PrithivaTopazFragment->GetJumlah() << endl;
+//	CraftMaterial(*PrithivaTopazSilver, *PrithivaTopazFragment, 2);
+//	cout << "Topaz Silver: " << PrithivaTopazSilver->GetJumlah() << endl;
+//	cout << "Topaz Fragment: " << PrithivaTopazFragment->GetJumlah() << endl;
 //	cout << Itto->GetAscend() << endl;
 //	DisplayMaterial();
+//	cout << Itto->GetLimitLevel() << endl;
 //	Itto->AscendChar(
 //		*PrithivaTopazSilver, 
 //		*PrithivaTopazFragment, 
@@ -74,10 +100,36 @@ int main(){
 //		*SlimeSecretion, 
 //		*SlimeConcentrate
 //	);
+//	cout << Itto->GetLimitLevel() << endl;
 //	DisplayMaterial();
-	
-	
 //	cout << Itto->GetAscend() << endl;
+
+//	Weapon* Redhorn = new Weapon();
+	
+//	pKarakter->SetExp(10);
+//	WandererAdvice->SetJumlah(10);
+//	DisplayDataChar();
+//	pKarakter->ConsumeExpBook(*WandererAdvice, 1);
+//	DisplayDataChar();
+	
+	
+	
+//	EnhanmentOre->SetJumlah();
+//	EnhanmentOre->SetExp(500);
+//	pWeapon->SetAscendLv(0);
+//	pWeapon->SetLevel(1);
+//	DisplayDataWeap();
+//	pWeapon->ConsumeOre(*EnhanmentOre, 1);
+//	DisplayDataWeap();
+//	pWeapon->SetID(1);
+//	pWeapon->Refine(*pWeapon);
+	pWeapon->SetTier(1);
+	pThundering->SetTier(0);
+	
+	pWeapon->ReturnVector();
+	pThundering->ReturnVector();
 	
 	return 0;
 }
+
+

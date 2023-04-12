@@ -137,19 +137,20 @@ void Karakter::ConsumeExpBook(ExpBook& buku, int amount){
 					this->SetExp(TotalExp);
 				}else{
 					while(TotalExp >= Batas){
-						if(Level != Limit){
+						if(LevelChar != Limit){
 							if(TotalExp >= Batas){
 								this->Level++;
 								TotalExp -= Batas;
 								this->SetExp(TotalExp);
 								Batas = this->GetBatasExpV();
-								if(Level == Limit){
+								if(LevelChar == Limit){
 									this->SetExp(0);
 								}
 							}
 						}
 					}
 				}
+				buku.KurangJumlah(amount);
 			}
 		}
 	}
